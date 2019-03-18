@@ -1,7 +1,5 @@
-% N = 10243;
-% N0 = 10230;
-% w = 1470;
-% p = 2128;
+% generate B1C code 
+
 function weil_out = weil_code_generator(N, N0, w, p)
     residu = [];
     for i = 0 : (N - 1) / 2
@@ -22,27 +20,8 @@ function weil_out = weil_code_generator(N, N0, w, p)
     else
         weil_out = [weil_code(p:end) weil_code(1:mod(p+N0 - 1, N))];
     end
+    z = (weil_out == 0);
+    o = (weil_out == 1);
+    weil_out(z) = 1;
+    weil_out(o) = -1;
 end
-% r = "";
-% for i = 1:24
-%     if weil_out(i) == 0
-%         r = r + "0";
-%     else
-%         r = r + "1";
-%     end
-% end 
-%  disp(dec2base(bin2dec(r), 8));
-%  r = "";
-%  for i = length(weil_out) - 23:length(weil_out)
-%     if weil_out(i) == 0
-%         r = r + "0";
-%     else
-%         r = r + "1";
-%     end
-% end 
-%  disp(dec2base(bin2dec(r), 8));
-%     for i = 1 : N - 1
-%         if ismember(i, residu)
-%             l(i) = 1;
-%         end
-%     end
