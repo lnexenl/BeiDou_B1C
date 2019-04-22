@@ -1,13 +1,12 @@
 % generate B1C code 
 
-function weil_out = weil_code_generator(N, N0, w, p)
-    residu = [];
-    for i = 0 : (N - 1) / 2
-        res = mod(i^2, N);
-        if ~ismember(res, residu)
-            residu = [residu res];
-        end
-    end
+function weil_out = weil_code_generator(prn)
+    load('./PRNList.mat');
+    load('./residu.mat');
+    w = PRNList(prn, 2);
+    p = PRNList(prn, 3);
+    N = 10243;
+    N0 = 10230;
     i = 0:N - 1;
     l = ismember(i, residu);
     weil_code = zeros(1, N);
