@@ -1,8 +1,9 @@
-# B1C_generator
-generate B1C code of BEIDOU
+# B1C signal generator and acquisitor
+generate B1C code of BEIDOU, also catch signal by fft
 
 1. generate weil code with weil_code_generator.py
 2. use B1C_generator.m to get B1C signal
+3. use acquision.m to catch signal
 
 ---
 
